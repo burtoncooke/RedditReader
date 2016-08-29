@@ -15,16 +15,16 @@ export default class SubRedditList extends React.Component {
     };
   }
 
-render() {
-    console.log("inside render in subreddit list:", this.props.subReddits)
+
+//dislpay checklist of subreddit topics 
+  render() {
     return (
-      <div className='filterRoomContainer col-md-12 col-sm-6'>
+      <div className='filterSubredditContainer col-md-12 col-sm-6'>
       {this.props.subReddits ?
       <div>
       <h4>Choose Your Subreddits</h4>
         <ul>
-          {this.props.subReddits.map((subReddit, index) => {
-           
+          {this.props.subReddits.filter(topic => topic !== 'The_Donald').map((subReddit, index) => {
             return (
               <li key={index}>
               <label htmlFor={index} >

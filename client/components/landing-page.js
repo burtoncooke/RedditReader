@@ -8,7 +8,7 @@ import Reddits from './reddits.js'
 
 var showingAllTopics = true;
 
-export default class SplashPage extends React.Component {
+export default class LandingPage extends React.Component {
   constructor() {
     super();
 
@@ -20,35 +20,32 @@ export default class SplashPage extends React.Component {
     };
   }
 
+
+// load reddits and subreddit topics on page load
   componentWillMount() { 
 
     var fullurl = 'http://www.reddit.com/reddits.json?jsonp=?'
     var setState = this.setState.bind(this);
     $.getJSON(fullurl, function(json){
       var list = json.data.children;
-      console.log("got listing:", list);
       $.getJSON('http://www.reddit.com/r/all.json?jsonp=?', function(data) {
 
         var reddits = data.data.children;
-        console.log("showing reddits:", reddits);
         setState({
           reddits: reddits,
           subReddits: list.map(item => item.data.display_name)
         })
       })
-      // var html = '<ul class="linklist">\n';
     })
-    
- 
   }
 
+// filter reddits by subreddit topic when user toggles checklist
   toggleCheck(event) {
 
     var setState = this.setState.bind(this);
     var reddits = this.state.reddits;
 
     if(event.target.checked) {
-
 
       $.getJSON(`http://www.reddit.com/r/${event.target.value}.json?jsonp=?`, function(json){
         var list = json.data.children;
@@ -60,11 +57,8 @@ export default class SplashPage extends React.Component {
           setState({reddits: json.data.children})
         }
         else {
-
           setState({reddits: reddits.concat(json.data.children)})
         }
-
-        // var html = '<ul class="linklist">\n';
       })
       
     }
