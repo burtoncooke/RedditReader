@@ -1,8 +1,10 @@
 # RedditReader
 
-To test the app: 
+To try the app: 
 
-1.	Clone down the repo
-2.	Run npm install
-3.	Run npm start 
-4.	Open browser tab to localhost:4000
+1.	clone down the repo
+2.	cd into the project folder
+2.	run npm install
+3.	run npm start 
+4.	open browser tab to localhost:4000
+5.	enjoy!
