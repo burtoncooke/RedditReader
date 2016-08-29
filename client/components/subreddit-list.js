@@ -10,9 +10,6 @@ export default class SubRedditList extends React.Component {
    constructor(props) {
     super(props);
 
-    this.state = {
-      rooms: null
-    };
   }
 
 

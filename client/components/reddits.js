@@ -8,12 +8,9 @@ import { Button } from 'react-bootstrap';
 
 export default class Reddits extends React.Component {
 
-   constructor(props) {
+  constructor(props) {
     super(props);
 
-    this.state = {
-      rooms: null
-    };
   }
 
 // display reddits in table format

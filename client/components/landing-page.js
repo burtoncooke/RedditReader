@@ -13,7 +13,6 @@ export default class LandingPage extends React.Component {
     super();
 
     this.state = {
-      user: null,
       redditData: null,
       subReddits: [],
       reddits: []
